@@ -1,3 +1,3 @@
 # ChatApp
 
-# An app to learn how to use the Socket.io node module
+# A basic chat app to learn how to use the Socket.io node module
