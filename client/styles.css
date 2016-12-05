@@ -1,8 +1,128 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 13px Helvetica, Arial; }
-        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-        #messages { list-style-type: none; margin: 0; padding: 0; }
-        #messages li { padding: 5px 10px; }
-        #messages li:nth-child(odd) { background: #eee; }
+body { 
+        font: 13px Helvetica, Arial; 
+}
+form { 
+        background: #000; 
+        padding: 3px; 
+        position: fixed; 
+        bottom: 5px; 
+        width: 100%; 
+}
+form input { 
+        border: 0; 
+        padding: 10px; 
+        width: 90%; 
+        margin-right: .5%; 
+}
+form button { 
+        width: 9%; 
+        background: rgb(130, 224, 255); 
+        border: none; 
+        padding: 10px; 
+}
+#messages { 
+        list-style-type: none; 
+        margin: 0; padding: 0; 
+}
+#messages li { 
+        padding: 5px 10px;
+        background: lightskyblue 
+}
+#messages li:nth-child(odd) { 
+        background: #eee; 
+}
+#typing {
+        bottom: 7%;
+        position: fixed;
+        height: 25px;
+}
+#user-connection {
+        bottom: 10%;
+        position: fixed;
+}
+.site-content {
+        margin-top: 25px;
+        padding-bottom: 25px;
+        height: 100%;
+}
+.app {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: left 0.2s linear;
+    transition: left 0.2s linear;        
+}
+.custom-navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 25px;
+        background-color: grey;
+        border-radius: 10px;
+}
+.hamburger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 25px;
+        background-color: grey;
+        color: ghostwhite;
+        border-radius: 10px;
+        float: left;
+}
+#ham-icon {
+        line-height: 25px;
+        height: 25px;
+        vertical-align: middle;
+        font-size: 1.5em;
+        padding-left: 5px;
+        float: left;
+}
+#ham-tag {
+        float: left;
+        height: 25px;
+        margin-left: 50px;
+        line-height: 25px;
+        vertical-align: middle;
+        color: ghostwhite;
+}
+.custom-drawer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 270px;
+        background-color: whitesmoke;
+        -webkit-transition: left 0.2s linear;
+        transition: left 0.2s linear;        
+}
+.showing-drawer {
+        left: 270px;
+        -webkit-box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.7);
+        box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.7);
+}
+.drawer-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+}
+.drawer-items {
+        width: 100%;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+        background-color: whitesmoke;
+        color: black;
+        font-weight: bold;
+        text-align: center;
+}
+.drawer-links {
+        text-decoration: none;
+        color: inherit;
+}

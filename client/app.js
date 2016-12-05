@@ -1,4 +1,4 @@
-angular.module('ChatApp', ['ngRoute', 'ngResource', 'ChatApp.controllers'])
+angular.module('ChatApp', ['ngRoute', 'ngResource', 'ChatApp.controllers', 'ChatApp.directives'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider

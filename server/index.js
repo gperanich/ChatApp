@@ -10,7 +10,7 @@ app.use(express.static(clientPath));
 
 io.on('connection', function(socket){
     console.log('user connected');
-    io.emit('user connected', 'user connected');
+    io.emit('user connected', 'gperanich connected');
 
     socket.on('chat message', function(msg){
         console.log('receiving message');
@@ -20,6 +20,10 @@ io.on('connection', function(socket){
     socket.on('disconnect', function() {
         console.log('user disconnected');
         io.emit('user disconnected', 'user disconnected');
+    });
+
+    socket.on('user typing', function(user) {
+        io.emit('user typing', user);
     });  
 });
 
