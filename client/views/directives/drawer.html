@@ -2,5 +2,10 @@
     <ul class="drawer-list">
         <li class="drawer-items"><button class="drawer-links" href="/">Chats</button></li>
         <li class="drawer-items"><custom-login></custom-login></li>
+        <li class="drawer-items"><button ng-click="logout()">Logout</button></li>
+    </ul>
+    <ul class="drawer-list">
+        <li class="drawer-items">Users</li>
+        <li class="drawer-items" ng-repeat="user in users">{{ user.username }}</li>
     </ul>
 </div>

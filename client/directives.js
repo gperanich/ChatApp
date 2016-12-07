@@ -16,8 +16,15 @@ angular.module('ChatApp.directives', [])
         return {
             templateUrl: 'views/directives/drawer.html',
             restrict: 'E',
-            controller: ['$scope', function($scope) {
+            controller: ['$scope', 'Users', 'UserService', '$location', function($scope, Users, UserService, $location) {
+                $scope.users = Users.query();
 
+                $scope.logout = function() {
+                    console.log('clicked logout');
+                    UserService.logout().then(function(success) {
+                        $location.url('/');
+                    });
+                }
             }]
         }
     })
@@ -25,8 +32,27 @@ angular.module('ChatApp.directives', [])
         return {
             templateUrl: 'views/directives/login.html',
             restrict: 'E',
-            controller: ['$scope', function($scope) {
-                
+            controller: ['$scope', 'UserService', function($scope, UserService) {
+                UserService.me().then(function (success) {
+                    redirect();
+                });
+                function redirect() {
+                    var dest = $location.search().p;
+                    if (!dest) {
+                        dest = '/';
+                    }
+                    $location.path(dest).search('p', null).replace();
+                }
+                $scope.login = function () {
+                    console.log('clicked login');
+                    UserService.login($scope.email, $scope.password)
+                        .then(function (success) {
+                            console.log('logged in!');
+                            redirect();
+                        }, function (err) {
+                            console.log(err);
+                        });
+                }
             }]
         }
     })
