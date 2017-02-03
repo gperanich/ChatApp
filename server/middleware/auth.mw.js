@@ -2,6 +2,7 @@ exports.isLoggedIn = function(req, res, next) {
     if (req.user) {
         next();
     } else {
+        console.log('not logged in');
         res.sendStatus(401);
     }
 }

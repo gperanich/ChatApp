@@ -9,6 +9,6 @@ exports.read = function(id) {
 exports.readByEmail = function(email) {
     return db.row('GetUserByEmail', [email]);
 }
-exports.create = function(firstname, lastname, email, password) {
-    return db.row('NewUser', [firstname, lastname, email, password]);
+exports.create = function(username, email, password) {
+    return db.row('NewUser', [username, email, password]);
 }

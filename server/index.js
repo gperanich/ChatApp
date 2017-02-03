@@ -1,5 +1,8 @@
 var path = require('path');
 var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var configurePassport = require('./config/passport');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -8,6 +11,10 @@ var api = require('./api');
 var clientPath = path.join(__dirname, '../client');
 
 app.use(express.static(clientPath));
+app.use(cookieParser());
+app.use(bodyParser.json());
+
+configurePassport(app);
 
 app.use('/api', api);
 

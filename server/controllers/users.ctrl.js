@@ -1,6 +1,7 @@
 var express = require('express');
 var procedures = require('../procedures/users.proc');
 var passport = require('passport');
+var utils = require('../utils');
 var auth = require('../middleware/auth.mw')
 
 var router = express.Router();
@@ -12,6 +13,7 @@ router.post('/login', function(req, res, next) {
             res.sendStatus(500);
         }
         if (!user) {
+            console.log('!user');
             console.log(info);
             res.status(401).send(info);
         }
@@ -38,14 +40,13 @@ router.route('/')
         procedures.all().then(function(users) {
             res.send(users);
         }, function(err) {
-            console.log(err);
             res.status(500).send(err);
         })
     })
     .post(function(req, res) {
         var u = req.body;
         utils.encryptPassword(u.password).then(function(hash) {
-            return procedures.create(u.firstname, u.lastname, u.email, hash);
+            return procedures.create(u.username, u.email, hash);
         }).then(function(id) {
             res.send(id);
         }).catch(function(err) {
